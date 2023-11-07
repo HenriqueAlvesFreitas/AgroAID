@@ -1,0 +1,98 @@
+
+
+.avatar-wrapper{
+   margin-right:20px
+}
+
+
+/*----------------------------------------------
+
+/* Chat containers */
+.container {
+    border: 1px solid #dedede;
+    border-color: #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    color: white;
+  }
+  
+  /* Darker chat container */
+  .darker {
+    
+    background-color: #444654;
+  }
+  
+  /* Clear floats */
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Style images */
+  .container img {
+    float: left;
+    max-width: 45px;
+    height: 45px;
+    margin-right: 20px;
+   border-radius: 100%;
+  }
+  
+  /* Style the right image */
+  .container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+  }
+  
+  /* Style time text */
+  .time-right {
+    float: right;
+    color: #aaa;
+  }
+  
+  /* Style time text */
+  .time-left {
+    float: left;
+    color: #999;
+  }
+
+
+
+  .text-box{
+    display: flex;
+    background-color: #444654;
+    height: fit-content;
+    border-radius: 5%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    align-items: center;
+    width: 20%;
+  }
+
+  .text-box textarea{
+    resize: none;
+    border-style: none;
+    color: white;
+    outline: none;
+    max-height: 200px;
+    padding: 10px;
+  }
+
+  .text-box textarea:focus{
+    resize: none;
+    border-style: none;
+    border-color: transparent;
+    color: white;
+  }
+
+  .text-box textarea:active{
+    resize: none;
+    border-style: none;
+    border-color: transparent;
+    color: white;
+  }
+
+  textarea::-webkit-scrollbar{
+    width: 0;
+  }

@@ -1,26 +1,32 @@
 package br.com.fiap.AgroAID.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
-@Entity
+
+@Entity(name = "user")
 @Data
-public class User {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class User{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
+    String name;
+    String email;
+    String password;
+    String telefone;
+    String avatarUrl;
 
-    @NotBlank
-    private String name;
-
-    @NotBlank
-    private String email;
-
-    @NotBlank
-    private String password;
+   public static User convert(OAuth2User oAuth2User){
+        return new User().builder()
+                    .id(Long.valueOf(oAuth2User.getName()))
+                    .name(oAuth2User.getAttribute("name"))
+                    .avatarUrl(oAuth2User.getAttribute("avatar_url"))
+                    .build();
+                    
+    }
 }
