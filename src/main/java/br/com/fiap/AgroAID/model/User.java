@@ -5,7 +5,7 @@ import lombok.*;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 
-@Entity(name = "user")
+@Entity
 @Data
 @Builder
 @NoArgsConstructor

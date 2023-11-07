@@ -10,7 +10,7 @@ import br.com.fiap.AgroAID.repository.UserRepository;
 
 @Configuration
 public class SecurityConfig {
-
+    
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
