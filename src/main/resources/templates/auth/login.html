@@ -7,15 +7,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>RentHub</title>
+    <title>AgroAID</title>
 </head>
 
 <body>
+    <div style="
+            background-color: #c4af8d;
+            margin: 0px;
+            height:100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            "
+    >
 
     <main class="container center">
-        <h1>RentHub</h1>
+        <h1>AgroAID</h1>
     
-        <p>O AgroAID ...</p>
+        <p>A Plataforma Inteligente para Agricultura Sustentável</p>
+        <!-- partial:index.partial.html -->
+        <section>
+            <div class="form-box">
+            <div class="form-value">
+                <form action="">
+                <h2>Login</h2>
+                <div class="inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="forget">
+                    <label>
+                    <input type="checkbox"> Lembre-me
+                    </label>
+                    <label>
+                    <a href="#">Esqueceu sua Senha?</a>
+                    </label>
+                </div>
+                <button>Log in</button>
+                <div class="register">
+                    <p>Não tem uma Conta ? <a href="#">Cadastre-se</a></p>
+                </div>
+                </form>
+            </div>
+            </div>
+        </section>
+        <!-- partial -->
+        <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script>
+        <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js'></script>
 
 
         <a href="/oauth2/authorization/google" class="btn">
