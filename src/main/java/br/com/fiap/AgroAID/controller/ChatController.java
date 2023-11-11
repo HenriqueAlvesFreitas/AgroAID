@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.AgroAID.model.Chat;
 import br.com.fiap.AgroAID.model.Dialog;
+import br.com.fiap.AgroAID.service.ChatGPTService;
 import br.com.fiap.AgroAID.service.ChatService;
 import br.com.fiap.AgroAID.service.DialogService;
 
@@ -26,6 +27,9 @@ public class ChatController {
 
     @Autowired
     DialogService dialogService;
+
+    @Autowired
+    ChatGPTService chatService;
     
     @GetMapping
     public String index(Model model, Chat chat){
@@ -37,14 +41,11 @@ public class ChatController {
     @PostMapping
     public String create(@Valid Chat chat, BindingResult result, RedirectAttributes redirect){
 
-        
-
         Chat botMessage = new Chat();
-        
         botMessage.setBot(true);
-        botMessage.setText("mensagem do bot");
-
-
+        botMessage.setText(chatService.chatGPT(chat.getText()));
+        
+        
         if(result.hasErrors()) return "chat/index";
 
         chat.setBot(false);
@@ -52,6 +53,8 @@ public class ChatController {
         Dialog dialog = dialogService.save(chat.getText());
 
         chat.setDialogId(dialog.getId());
+       
+
         botMessage.setDialogId(dialog.getId());
 
         Chat message = service.save(chat);
@@ -82,7 +85,7 @@ public class ChatController {
         Chat botMessage = new Chat();
         
         botMessage.setBot(true);
-        botMessage.setText("mensagem do bot");
+        botMessage.setText(chatService.chatGPT(chat.getText()));
 
         chat.setBot(false);
         
