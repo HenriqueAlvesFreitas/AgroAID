@@ -75,7 +75,7 @@
   border-right: solid 2px white; 
   height: auto; 
   width: 25%; 
-  max-height: 100vh; 
+  height: 100vh;
   background-color: #282a36;
   display: flex;
   flex-direction: column;

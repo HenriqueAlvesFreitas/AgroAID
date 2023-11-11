@@ -13,7 +13,19 @@
 <body>
 
     <main class="container center">
-        <h1>RentHub</h1>
+        <div style="
+            background-color: #c4af8d;
+            margin: 0px;
+            height:100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            "
+        >
+        <a href="https://cdn.discordapp.com/attachments/945808741385793596/1172930740476973220/Green_Minimalist_Nature_Tree_Logo.png?ex=65621be0&is=654fa6e0&hm=c88f3a24acd0886223427bb23b0d106d4edc513fba5a9f9b816d76df54a0a574&">
+            <img src="https://cdn.discordapp.com/attachments/945808741385793596/1172930740476973220/Green_Minimalist_Nature_Tree_Logo.png?ex=65621be0&is=654fa6e0&hm=c88f3a24acd0886223427bb23b0d106d4edc513fba5a9f9b816d76df54a0a574&" alt="Logo AgroAID">
+        </a>
     
         <p>Tem certeza que deseja sair do sistema?</p>
 
@@ -21,14 +33,16 @@
             <a href="http://localhost:8080/" class="btn grey">
                 <i class="material-icons left">chevron_left</i>
                 volta para o sistema
-            </a>
+            </a>        
+        </div>
+        <br>
+        <div>
             <form th:action="${'/logout'}" method="post">
                 <button class="btn">
                     <i class="material-icons left">check</i>
                     sair do sistema
                 </button>
             </form>
-            
         </div>
 
 
