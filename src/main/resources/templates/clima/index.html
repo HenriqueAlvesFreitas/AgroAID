@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head th:replace="~{_template::head('Chat')}">
+  <title>Consulta de Clima</title>
+</head>
+<body>
+    <nav th:replace="~{_template::#navbar}"></nav>
+    <div style="
+            background-color: #343541;
+            margin: 0px;
+            height:100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            "
+    >
+      <div style="
+                width: 1000px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                "
+      >
+
+      <form th:action="@{/clima}" th:object="${clima}" method="post">
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" th:field="*{cidade}" />
+        <button type="submit">Consultar Clima</button>
+      </form>
+         
+      <div th:if="${clima != null}">
+        <p th:text="${climalist}" style="color: white;"></p>
+      </div>
+
+      <div th:if="${error != null}">
+        <p th:text="${error}" style="color: red;"></p>
+      </div>
+    <script>
+      const textarea = document.querySelector("textarea");
+      textarea.addEventListener("keyup", e=>{
+        textarea.style.height = `auto` 
+        let scHeight = e.target.scrollHeight;
+        textarea.style.height = `${scHeight}px`   
+         
+      })
+    </script>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.dropdown-trigger');
+      const options = {
+          constrainWidth: false,
+          coverTrigger: false
+      }
+      var instances = M.Dropdown.init(elems, options);
+  });
+</script>
+
+</html>
