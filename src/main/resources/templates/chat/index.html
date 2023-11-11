@@ -10,40 +10,54 @@
             height:100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            flex-direction: row;
             "
     >
-      <div style="
-                width: 1000px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                "
+
+      <div class="messages-container"
       >
+        <a href="/chat" class="btn" style="margin-bottom: 10px;">NEW chat</a>
 
-        <div th:each="chat : ${chatList}" th:class="'container ' +${!chat.bot ? 'darker': ''}">
-          <img th:src="${chat.bot ? '../../assets/chat.jpg' : '../../assets/profile.jpg'}" alt="Avatar" th:class="${!chat.bot ? 'right' : ''}">
-          <p th:text="${chat.text}"></p>
-          <span  th:text="${chat.time}" th:class="${!chat.bot ? 'time-left' : 'time-right'}"></span>
-        </div>
-         
+        <a th:href="'chat/' + ${dialog.id}"   
+           th:each="dialog : ${dialogList}"
+           class="dialog-link"  
+        >
+          <i class="material-icons">chat_bubble_outline</i>
+          <p th:text="${dialog.title}"></p>  
+        </a>
+
       </div>
-
-      <p th:text="${chatList}" style="color: white;"></p>
-
-      <form class="text-box" th:action="${'/chat'}"  method="post" th:object="${chat}">
-        
-        <textarea 
-          placeholder="send message"
-          th:field="*{text}" 
-        ></textarea>
-        
-        <button class="btn"><i class="material-icons">send</i>
-        </button>
-     
-      </form>
       
+      <div style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            "
+      >
+        <div style="
+                  width: 1000px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  "
+        >
+
+          <div style="height: 75vh;"></div>
+          
+        </div>
+
+        <form class="text-box" th:action="${'/chat'}"  method="post" th:object="${chat}">
+          
+          <textarea 
+            placeholder="send message"
+            th:field="*{text}" 
+          ></textarea>
+          
+          <button class="btn"><i class="material-icons">send</i>
+          </button>
+      
+        </form>
+      </div>
       
      
     </div>

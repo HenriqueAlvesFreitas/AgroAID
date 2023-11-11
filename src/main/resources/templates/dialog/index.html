@@ -14,18 +14,23 @@
             "
     >
 
-      <div class="messages-container"
-      >
-        <a href="/chat" class="btn" style="margin-bottom: 10px;">NEW chat</a>
+      <div class="messages-container">
 
-        <a th:href="'chat/' + ${dialog.id}"   
-           th:each="dialog : ${dialogList}"
-           class="dialog-link"  
+        <a href="/chat" 
+           class="btn"
+           style="margin-bottom: 10px;"
         >
-          <i class="material-icons">chat_bubble_outline</i>
-          <p th:text="${dialog.title}"></p>  
+          NEW chat
         </a>
 
+        <a th:href="'/chat/' + ${dialog.id}" 
+           th:each="dialog : ${dialogList}"
+            
+           th:class="'dialog-link ' + ${dialog.id == dialogId ? 'choosed': ''}" 
+        >
+          <i class="material-icons">chat_bubble_outline</i>
+          <p th:text="${dialog.title}"></p>    
+        </a>
       </div>
       
       <div style="
@@ -39,14 +44,20 @@
                   display: flex;
                   flex-direction: column;
                   align-items: center;
+                  overflow-y: scroll;
+                  height: 75vh;
                   "
         >
 
-          <div style="height: 75vh;"></div>
+          <div th:each="chat : ${chatList}" th:class="'container ' +${!chat.bot ? 'darker': ''}">
+            <img th:src="${chat.bot ? '../../assets/chat.jpg' : '../../assets/profile.jpg'}" alt="Avatar" th:class="${!chat.bot ? 'right' : ''}">
+            <p th:text="${chat.text}"></p>
+            <span  th:text="${chat.time}" th:class="${!chat.bot ? 'time-left' : 'time-right'}"></span>
+          </div>
           
         </div>
 
-        <form class="text-box" th:action="${'/chat'}"  method="post" th:object="${chat}">
+        <form class="text-box" th:action="${'/chat/' + dialogId }"  method="post" th:object="${chat}">
           
           <textarea 
             placeholder="send message"
