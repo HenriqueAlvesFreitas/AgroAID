@@ -14,6 +14,10 @@ public class Clima {
     private Long id;
     private String cidade;
     private Double temperature;
+    private Double tempMin;
+    private Double tempMax;
     private Double humidity;
+    private Double speed;
+    private Double degree;
 
 }

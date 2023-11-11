@@ -47,7 +47,11 @@ public class ClimaController {
         try {
             CurrentWeather currentWeather = owm.currentWeatherByCityName(cityName);
             clima.setTemperature(currentWeather.getMainData().getTemp());
+            clima.setTempMin(currentWeather.getMainData().getTempMin());
+            clima.setTempMax(currentWeather.getMainData().getTempMax());
             clima.setHumidity(currentWeather.getMainData().getHumidity());
+            clima.setSpeed(currentWeather.getWindData().getSpeed());
+            clima.setDegree(currentWeather.getWindData().getDegree());
             service.save(clima);
             redirect.addFlashAttribute("success", message.getMessage("clima.created.success", null, LocaleContextHolder.getLocale()));
         } catch (APIException e) {
