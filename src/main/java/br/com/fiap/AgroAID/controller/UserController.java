@@ -3,8 +3,11 @@ package br.com.fiap.AgroAID.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @Controller
 public class UserController {
+
+
     @GetMapping("/login")
     public String loginPage(){
         return "auth/login";
@@ -14,4 +17,5 @@ public class UserController {
     public String logoutPage(){
         return "auth/logout";
     }
+
 }

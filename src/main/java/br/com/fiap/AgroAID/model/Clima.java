@@ -5,19 +5,15 @@ import lombok.*;
 
 @Entity
 @Data
-public class CityRequest {
+@Getter
+@Setter
+public class Clima {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cidade;
+    private Double temperature;
+    private Double humidity;
 
-    // Getter e Setter para cidade
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
 }

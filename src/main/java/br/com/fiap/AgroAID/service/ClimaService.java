@@ -3,17 +3,20 @@ package br.com.fiap.AgroAID.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import br.com.fiap.AgroAID.model.CityRequest;
-import br.com.fiap.AgroAID.repository.WeatherRepository;
+import br.com.fiap.AgroAID.model.Clima;
+import br.com.fiap.AgroAID.model.WeatherEntity;
+import net.aksingh.owmjapis.model.CurrentWeather;
+import br.com.fiap.AgroAID.repository.ClimaRepository;
 
-
-
-public class WeatherService {
+@Service
+public class ClimaService {
+    
     @Autowired
-    WeatherRepository repository;
+    ClimaRepository repository;
 
-    public List<CityRequest> findAll(){
+    public List<Clima> findAll(){
         return repository.findAll();
     }
 
@@ -25,8 +28,10 @@ public class WeatherService {
         return true;
     }
 
-    public void save(CityRequest request) {
+    public void save(Clima request) {
         repository.save(request);
     }
+
+  
     
 }

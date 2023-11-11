@@ -20,11 +20,29 @@
         <div class="nav-wrapper  light-green darken-2">
           <a href="http://localhost:8080/" class="brand-logo">AgroAID</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="active"><a href="/pizza">Chat</a></li>
+            <li class="active"><a href="/chat">Chat</a></li>
             
             <li><a href="/clima">Clima</a></li>
 
             <li><a href="#">Config</a></li>
+            <li>
+              <!-- Dropdown Trigger -->
+              <a class='dropdown-trigger' href='#' data-target='dropdown1'>
+                  <img th:src="${avatar_url}" class="avatar" alt="foto do usuário" />
+              </a>
+
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content'>
+                  <li><span th:text="${username}"></span></li>
+                  <li class="divider" tabindex="-1"></li>
+                  <li>
+                      <a href="/logout">
+                          <i class="material-icons">logout</i>
+                          sair
+                      </a>
+                  </li>
+              </ul>
+          </li>
 
           </ul>
         </div>
