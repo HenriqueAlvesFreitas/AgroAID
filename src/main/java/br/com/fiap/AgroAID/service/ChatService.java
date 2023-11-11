@@ -16,11 +16,12 @@ public class ChatService {
     
     @Autowired
     ChatRepository repository;
-
-    public void save(@Valid Chat chat){
+    
+    public Chat save(@Valid Chat chat){
 
         LocalTime time = LocalTime.now();
 
+        
         
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
 
@@ -29,12 +30,17 @@ public class ChatService {
 
         chat.setTime(formatedTime);
 
-        chat.setBot(false);
-
         repository.save(chat);
+
+        return chat;
     }
 
     public List<Chat> findAll(){
         return repository.findAll();
+    }
+
+    public List<Chat> findByDialogId(Long id){
+
+        return repository.findChatByDialogId(id);
     }
 }

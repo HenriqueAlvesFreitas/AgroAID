@@ -30,7 +30,7 @@ public class LoginFilter extends OncePerRequestFilter {
 
             if(authentication != null){
                 var user = (OAuth2User) authentication.getPrincipal();
-                var userDb = repository.findById(Long.valueOf(user.getName()));
+                var userDb = repository.findById(user.getAttribute("avatar_url"));
                 
                 if(userDb.isEmpty()){
                     repository.save(User.convert(user));
